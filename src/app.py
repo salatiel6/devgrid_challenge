@@ -36,7 +36,7 @@ def weather():
 
             request_datetime = datetime.now()
 
-            cities = os.getenv("apendix_a").split(',')
+            cities = os.getenv("APENDIX_A").split(',')
             for city_id in cities:
                 city_info = get_weather(city_id)
                 insert_weather(user_id, request_datetime, str(city_info))
