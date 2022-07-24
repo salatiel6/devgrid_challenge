@@ -3,6 +3,7 @@ import random
 
 from datetime import datetime
 
+
 def db_connect():
     db = None
     try:
@@ -47,7 +48,7 @@ def create_test_db():
         cur.execute(create_table)
 
         for i in range(0, 3):
-            user_id = 111111
+            user_id = 123456
             request_datetime = datetime.now()
             city_info = {
                 "city_id": str(random.randrange(100000, 999999)),
@@ -63,3 +64,15 @@ def create_test_db():
             cur.execute(insert, (str(city_info),))
 
         db.commit()
+
+
+def delete_tested_rows(user_id):
+    sql = f'''
+        DELETE FROM weather
+        WHERE user_id = {user_id}
+    '''
+
+    db = db_connect()
+    cur = db.cursor()
+    cur.execute(sql)
+    db.commit()

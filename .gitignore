@@ -1,0 +1,7 @@
+__pycache__/
+src/.env
+src/sqlite.db
+tests/.pytest_cache
+tests/test_sqlite.db
+/.pytest_cache/
+/tests/.coverage
