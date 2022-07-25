@@ -329,8 +329,10 @@ Get collected cities:
 
 ## What Did Go Wrong
 - Couldn't split `app.py` in desired multiple modules(`run.py`, `views.py`, `features.py`). Because when running in Docker, it couldn't import these modules. It probably has something to do with PYTHONPATH, but I wasn't able to solve this problem.
+- I tried to run pytest on Dockerfile, but got a little confused on how to manage the directories for manking it works.
 
 ## Doubts
 - I don't know if I handled SQLite database files on propper way.
 - The pytest coverage returns 100%. But I'm  not sure if everything is properly tested.
 - Got some problems when trying to split app.py module, and I don't know what is the real problem.
+- Not sure if it is a good pratice to run pytest on Dockerfile

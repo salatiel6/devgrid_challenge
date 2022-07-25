@@ -1,3 +1,6 @@
+> ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.6.0-FEAT-blue)  
+> `Documentation completed`
+
 > ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.5.1-REFACTOR-red)  
 > `Renamed all id reference to user_id`
 
