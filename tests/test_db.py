@@ -1,7 +1,7 @@
 import pytest
 import random
 
-from .db_manager import db_connect
+from .test_db_manager import db_connect
 
 
 @pytest.fixture

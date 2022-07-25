@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from .db_manager import create_test_db, delete_tested_rows
+from .test_db_manager import create_test_db, delete_tested_rows
 from devgrid_challenge.src.app import app
 
 create_test_db()

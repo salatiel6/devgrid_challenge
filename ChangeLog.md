@@ -1,3 +1,6 @@
+> ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.4.2-REFACTOR-red)  
+> `Removed unnecessary variables from .env. Renamed db_manager to test_db_manager`
+
 > ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.4.1-REFACTOR-red)  
 > `Alocated database files on diferent folders`
 

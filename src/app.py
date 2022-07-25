@@ -22,9 +22,9 @@ def db_connect():
 
     try:
         if app.config['TESTING']:
-            db = sqlite3.connect(os.getenv('TEST_DATABASE'))
+            db = sqlite3.connect("../db/test_sqlite.db")
         else:
-            db = sqlite3.connect(os.getenv('DATABASE'))
+            db = sqlite3.connect("../db/sqlite.db")
     except Exception as e:
         print(e)
 
@@ -121,14 +121,14 @@ def verify_user_id(user_id):
 
 
 def get_weather(city_id):
-    weather_api = os.getenv('WEATHER_API')
     api_key = os.getenv('API_KEY')
 
-    query = f"id={city_id}&appid={api_key}"
+    weather_api = "https://api.openweathermap.org/data/2.5/weather"
+    query = f"?id={city_id}&appid={api_key}&units=metric"
 
     url = weather_api + query
 
-    data = requests.get(url).json()
+    data = requests.get(url, verify=False).json()
 
     return {
         "city_id": data['id'],
