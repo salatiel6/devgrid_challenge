@@ -1,4 +1,7 @@
-> ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.4.0-FEAT-blue)  
+> ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.4.1-REFACTOR-red)  
+> `Alocated database files on diferent folders`
+
+> ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.4.0-FEAT-blue)  
 > `Added code coverage to pytest`
 
 > ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.3.1-FIX-green)

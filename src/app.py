@@ -14,9 +14,15 @@ app.config['JSON_SORT_KEYS'] = False
 
 def db_connect():
     db = None
+
+    path = "../db"
+
+    if not os.path.exists(path):
+        os.makedirs(path)
+
     try:
         if app.config['TESTING']:
-            db = sqlite3.connect("test_sqlite.db")
+            db = sqlite3.connect(os.getenv('TEST_DATABASE'))
         else:
             db = sqlite3.connect(os.getenv('DATABASE'))
     except Exception as e:
@@ -59,7 +65,7 @@ def weather():
 
             request_datetime = datetime.now()
 
-            cities = os.getenv("APENDIX_A").split(',')
+            cities = os.getenv("APPENDIX_A").split(',')
             try:
                 for city_id in cities:
                     city_info = get_weather(city_id)
@@ -160,7 +166,7 @@ def get_collected_cities(user_id):
 
     collected_info = {}
 
-    cities_ids = os.getenv("APENDIX_A").split(',')
+    cities_ids = os.getenv("APPENDIX_A").split(',')
     progress = (len(rows) * 100) / len(cities_ids)
 
     collected_info["user_id"] = user_id

@@ -18,43 +18,6 @@ def client():
     yield client
 
 
-def test_get_with_existent_id(client):
-    user_id = 123456
-    result = client.get(f"/weather?id={user_id}")
-    assert result.status_code == 200
-
-
-def test_get_with_unexistent_id(client):
-    user_id = "000000"
-
-    result = client.get(f"/weather?id={user_id}")
-
-    response_body = json.loads(result.data)
-
-    assert result.status_code == 400
-    assert response_body == {"message": "User identifier not found."}
-
-
-def test_get_without_id(client):
-    result = client.get("/weather")
-
-    response_body = json.loads(result.data)
-
-    assert result.status_code == 400
-    assert response_body == {"message": "Missing query param 'id'."}
-
-
-def test_get_with_wrong_format_id(client):
-    user_id = "1q2w3e"
-
-    result = client.get(f"/weather?id={user_id}")
-
-    response_body = json.loads(result.data)
-
-    assert result.status_code == 400
-    assert response_body == INVALID_ID_RESPONSE
-
-
 def test_post_with_valid_id(client):
     """
     Testing the main function with a valid id
@@ -182,3 +145,40 @@ def test_post_with_wrong_body(client):
 
     assert result.status_code == 400
     assert response_body == {"message": "Missing param 'id'."}
+
+
+def test_get_with_existent_id(client):
+    user_id = 123456
+    result = client.get(f"/weather?id={user_id}")
+    assert result.status_code == 200
+
+
+def test_get_with_unexistent_id(client):
+    user_id = "000000"
+
+    result = client.get(f"/weather?id={user_id}")
+
+    response_body = json.loads(result.data)
+
+    assert result.status_code == 400
+    assert response_body == {"message": "User identifier not found."}
+
+
+def test_get_without_id(client):
+    result = client.get("/weather")
+
+    response_body = json.loads(result.data)
+
+    assert result.status_code == 400
+    assert response_body == {"message": "Missing query param 'id'."}
+
+
+def test_get_with_wrong_format_id(client):
+    user_id = "1q2w3e"
+
+    result = client.get(f"/weather?id={user_id}")
+
+    response_body = json.loads(result.data)
+
+    assert result.status_code == 400
+    assert response_body == INVALID_ID_RESPONSE

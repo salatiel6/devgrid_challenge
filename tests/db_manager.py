@@ -1,13 +1,19 @@
 import sqlite3
 import random
+import os
 
 from datetime import datetime
 
 
 def db_connect():
     db = None
+    path = "../db"
+
+    if not os.path.exists(path):
+        os.makedirs(path)
+
     try:
-        db = sqlite3.connect("test_sqlite.db")
+        db = sqlite3.connect("../db/test_sqlite.db")
     except Exception as e:
         print(e)
 

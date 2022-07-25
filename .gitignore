@@ -5,3 +5,4 @@ tests/.pytest_cache
 tests/test_sqlite.db
 /.pytest_cache/
 /tests/.coverage
+/db/
