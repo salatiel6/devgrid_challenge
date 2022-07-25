@@ -140,7 +140,7 @@ def get_weather(city_id):
 
     url = weather_api + query
 
-    data = requests.get(url, verify=False).json()
+    data = requests.get(url).json()
 
     return {
         "city_id": data['id'],

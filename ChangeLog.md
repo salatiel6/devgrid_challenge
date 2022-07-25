@@ -13,7 +13,7 @@
 > ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.4.0-FEAT-blue)  
 > `Added code coverage to pytest`
 
-> ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.3.1-FIX-green)
+> ![](https://img.shields.io/badge/Jul_24,_2022-black) ![](https://img.shields.io/badge/v0.3.1-FIX-green)  
 > `Invalid data tests passing with status_code 200`
 
 > ![](https://img.shields.io/badge/Jul_23,_2022-black) ![](https://img.shields.io/badge/v0.3.0-FEAT-blue)  
