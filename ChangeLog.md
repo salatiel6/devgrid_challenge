@@ -1,3 +1,9 @@
+> ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.5.1-REFACTOR-red)  
+> `Renamed all id reference to user_id`
+
+> ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.5.0-FEAT-blue)  
+> `Created method for checking if .env file exists`
+
 > ![](https://img.shields.io/badge/Jul_25,_2022-black) ![](https://img.shields.io/badge/v0.4.2-REFACTOR-red)  
 > `Removed unnecessary variables from .env. Renamed db_manager to test_db_manager`
 
