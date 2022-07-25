@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/version-v0.4.2-gold)  
+![](https://img.shields.io/badge/version-v0.5.1-gold)  
 ![](https://img.shields.io/badge/python-v3.10.1-blue)
 ![](https://img.shields.io/badge/Flask-v2.1.3-pink)
 ![](https://img.shields.io/badge/sqlite3-v2.6.0-purple)
@@ -42,11 +42,11 @@ After evaluating that the received request is a POST. The first thing the functi
         request_data = request.json
 
         try:
-            user_id = request_data["id"]
+            user_id = request_data["user_id"]
         except KeyError:
-            return {"message": "Missing param 'id'."}, 400
+            return {"message": "Missing param 'user_id'."}, 400
 ```
-As we can see above, if the `id` param is not in the requested body, it will return an error.
+As we can see above, if the `user_id` param is not in the requested body, it will return an error.
 
 After that, we call another function, responsible for validating the `user_id`. And only if the `user_id` is valid, we continue on the code.
 ```
@@ -55,7 +55,7 @@ if verify_user_id(user_id):
 .
 .
 else:
-    return {"message": "Invalid ID. It must contain only numbers and be unique."}, 400
+    return {"message": "Invalid 'user_id'. It must contain only numbers and be unique."}, 400
 ```
 >The `verify_user_id()` function checks every path possible for evaluating the `user_id`
 > ```
@@ -79,7 +79,7 @@ else:
 >
 >    return True
 > ```
-> First, we try to convert it into an integer, because the `id` must contain only numbers, if it's not converted, we return `False`.
+> First, we try to convert it into an integer, because the `user_id` must contain only numbers, if it's not converted, we return `False`.
 >
 > Then, we query through de database, and check if there's already collected cities with this id (`user_id` is not unique, but it can only call API `POST` method once).
 
@@ -145,19 +145,19 @@ Responsible for receiving a `user_id`, and query through the database. Checking 
 After evaluating that the received request is a `GET`. The first thing the function does, is to get the `user_id`, from the `url-query`.
 ```
 if request.method == "GET":
-    user_id = request.args.get("id")
+    user_id = request.args.get("user-id")
 
     if not user_id:
-        return {"message": "Missing query param 'id'."}, 400
+        return {"message": "Missing query param 'user-id'."}, 400
 ```
-The first thing that we check, is if the `id` param is present on the query url. If not, e return an error.
+The first thing that we check, is if the `user_id` param is present on the query url. If not, e return an error.
 
 After that we check if the `user_id` is valid, by trying to convert it to an integer.
 ```
 try:
     int(user_id)
 except ValueError:
-    return {"message": "Invalid ID. It must contain only numbers and be unique."}, 400
+    return {"message": "Invalid 'user-id'. It must contain only numbers and be unique."}, 400
 ```
 
 Then, we call `get_collected_cities()` function, which will try to get and return the cities caught by the POST request.
@@ -206,7 +206,7 @@ collected_cities = get_collected_cities(user_id)
 >    return collected_info
 > ```
 
-If there were no data for the passed `id`, we return this error message, but if it has we return the object with the percentage and the cities collected.
+If there were no data for the passed `user_id`, we return this error message, but if it has we return the object with the percentage and the cities collected.
 ```
 if not collected_cities:
     return {"message": "User identifier not found."}, 400
