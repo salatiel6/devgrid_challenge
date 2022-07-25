@@ -3,7 +3,7 @@
 FROM python:3.10.1
 
 WORKDIR /app
-COPY    src/requirements.txt ./
+COPY    requirements.txt ./
 
 RUN pip install --no-cache-dir -U pip setuptools && \
     pip install -r requirements.txt
